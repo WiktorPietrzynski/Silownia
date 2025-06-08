@@ -2,27 +2,18 @@
 
 ## Spis treści
 1. [Opis projektu](#opis-projektu)
-2. [Struktura projektu](#struktura-projektu)
+2. [Wymagania](#wymagania)
 3. [Funkcjonalności](#funkcjonalności)
-4. [Autorzy](#autorzy)
+4. [Instalacja](#instalacja)
+5. [Autorzy](#autorzy)
+
 
 ## Opis projektu
 
 Aplikacja służy do uproszczonego zarządzania członkostwem w siłowni. Umożliwia dodawanie klientów, instruktorów, karnetów oraz zajęć.
 
-## Struktura projektu
-
-Aby zachować porządek i umożliwić współpracę wielu osób przy projekcie, kod aplikacji został podzielony na kilka plików:
-
-```
-src/
-├──
-tests/
-├──
-
-
-
-```
+## Wymagania
+Python 3.11 lub nowszy
 
 ## Funkcjonalności
 
@@ -35,6 +26,8 @@ Projekt składa się z kilku podstawowych klas:
 5. **Siłownia** - Zarządzanie siłownią, w tym dodawanie klientów, instruktorów i zajęć
 6. **Platność** - Informacje o płatnościach, w tym historia płatności klientów
 
+## Instalacja
+Aby uruchomić projek nie jest wymagana żadna dodatkowa instalacja. Wystarczy sklonować repozytorium i uruchomić plik `main.py`
 
 ## Autorzy
 - Wiktor Pietrzyński (@WiktorPietrzynski) - 125134
