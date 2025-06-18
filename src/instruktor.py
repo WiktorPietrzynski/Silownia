@@ -1,28 +1,14 @@
-class Instruktor:
+from src.osoba import Osoba
+
+
+class Instruktor(Osoba):
     def __init__(self, imie: str, nazwisko: str, data_urodzenia: str, email: str = None, telefon: str = None):
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.data_urodzenia = data_urodzenia
-        self.email = email
-        self.telefon = telefon
+        super().__init__(imie, nazwisko, data_urodzenia, email, telefon)
         self.specjalizacje = []
         print(f"Instruktor {self.imie} {self.nazwisko} został dodany.")
 
     def __str__(self):
-        return f"{self.imie} {self.nazwisko} ({self.data_urodzenia}) - Specjalizacje: {', '.join(self.specjalizacje) if self.specjalizacje else 'Brak'}"
-
-    def zmien_dane(self, imie: str = None, nazwisko: str = None, data_urodzenia: str = None, email: str = None, telefon: str = None):
-        if imie:
-            self.imie = imie
-        if nazwisko:
-            self.nazwisko = nazwisko
-        if data_urodzenia:
-            self.data_urodzenia = data_urodzenia
-        if email:
-            self.email = email
-        if telefon:
-            self.telefon = telefon
-        print(f"Dane instruktora {self.imie} {self.nazwisko} zostały zaktualizowane.")
+        return f"{self.imie} {self.nazwisko} - Specjalizacje: {', '.join(self.specjalizacje) if self.specjalizacje else 'Brak'}"
 
     def dodaj_specjalizacje(self, specjalizacja: str):
         if specjalizacja not in self.specjalizacje:
