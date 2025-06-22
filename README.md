@@ -24,7 +24,6 @@ Projekt składa się z kilku podstawowych klas:
 3. **Karnet** - Informacje o karnetach, ich typach i ważności
 4. **Zajęcia** - Informacje o zajęciach
 5. **Siłownia** - Zarządzanie siłownią, w tym dodawanie klientów, instruktorów i zajęć
-6. **Platność** - Informacje o płatnościach, w tym historia płatności klientów
 
 ## Instalacja
 Aby uruchomić projek nie jest wymagana żadna dodatkowa instalacja. Wystarczy sklonować repozytorium i uruchomić plik `main.py`
