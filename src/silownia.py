@@ -20,10 +20,10 @@ class Silownia:
             print(f"Dodano klienta: {klient.imie} {klient.nazwisko}")
 
     def dodaj_instruktora(self, instruktor: Instruktor):
-        if instruktor in self.instuktorzy:
+        if instruktor in self.instruktorzy:
             print(f"Instruktor {instruktor.imie} {instruktor.nazwisko} już istnieje.")
         else:
-            self.instuktorzy.append(instruktor)
+            self.instruktorzy.append(instruktor)
             print(f"Dodano instruktora: {instruktor.imie} {instruktor.nazwisko}")
 
     def zaplanuj_zajecia(self, zajecia: Zajecia):
@@ -81,4 +81,3 @@ class Silownia:
                 print(f"- {zajecia.nazwa} - {zajecia.data}")
         else:
             print("Brak zaplanowanych zajęć.")
-
