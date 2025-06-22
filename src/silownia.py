@@ -25,3 +25,17 @@ class Silownia:
         else:
             self.instuktorzy.append(instruktor)
             print(f"Dodano instruktora: {instruktor.imie} {instruktor.nazwisko}")
+
+    def zaplanuj_zajecia(self, zajecia: Zajecia):
+        if zajecia in self.zajecia:
+            print(f"Zajęcia {zajecia.nazwa} - {zajecia.data} już istnieją.")
+        else:
+            self.__sprawdz_zaplanowane_zajecia(zajecia)
+            self.zajecia.append(zajecia)
+            print(f"Dodano zajęcia: {zajecia.nazwa} - {zajecia.data}")
+
+    def __sprawdz_zaplanowane_zajecia(self, zajecia):
+        godziny_rozpoczecia_zajec = [zajecia.data for zajecia in self.zajecia]
+        if zajecia.data in godziny_rozpoczecia_zajec:
+            raise ValueError("Zajecia nie mogą odbywać się w tym samym czasie")
+
