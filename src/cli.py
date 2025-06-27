@@ -11,41 +11,47 @@ def run_cli() -> None:
     lokalizacja_silowni = "Warszawa, ul. Przykładowa 1"
     silownia = Silownia(nazwa_silowni, lokalizacja_silowni)
     while True:
-        print("\nMenu:")
-        print("1. Zarządzaj klientami")
-        print("2. Zarządzaj instruktorami")
-        print("3. Zarządzaj zajęciami")
-        print("4. Wyświetl członków siłowni")
-        print("5. Wyświetl instruktorów siłowni")
-        print("6. Wyświetl zajęcia siłowni")
-        print("7. Wyjdź")
-        choice = str(input("Wybierz opcję: "))
-        if choice == "1":
-            zarzadzanie_klientami(silownia)
-        elif choice == "2":
-            zarzadzanie_instruktorami(silownia)
-        elif choice == "3":
-            zarzadzanie_zajeciami(silownia)
-        elif choice == "4":
-            print("\nCzłonkowie siłowni:")
-            if len(silownia.klienci) == 0:
-                print("Brak klientów przypisanych do siłowni.")
+        try:
+            print("\nMenu:")
+            print("1. Zarządzaj klientami")
+            print("2. Zarządzaj instruktorami")
+            print("3. Zarządzaj zajęciami")
+            print("4. Wyświetl członków siłowni")
+            print("5. Wyświetl instruktorów siłowni")
+            print("6. Wyświetl zajęcia siłowni")
+            print("7. Wyjdź")
+            choice = str(input("Wybierz opcję: "))
+            if choice == "1":
+                zarzadzanie_klientami(silownia)
+            elif choice == "2":
+                zarzadzanie_instruktorami(silownia)
+            elif choice == "3":
+                zarzadzanie_zajeciami(silownia)
+            elif choice == "4":
+                print("\nCzłonkowie siłowni:")
+                if len(silownia.klienci) == 0:
+                    print("Brak klientów przypisanych do siłowni.")
+                else:
+                    silownia.wyswietl_czlonkow()
+            elif choice == "5":
+                print("\nInstruktorzy siłowni:")
+                if len(silownia.instruktorzy) == 0:
+                    print("Brak instruktorów przypisanych do siłowni.")
+                else:
+                    silownia.wyswietl_instruktorow()
+            elif choice == "6":
+                print("\nZajęcia siłowni:")
+                if len(silownia.zajecia) == 0:
+                    print("Brak zajęć przypisanych do siłowni.")
+                else:
+                    silownia.wyswietl_zajecia()
+            elif choice == "7":
+                print("Zamykanie programu...")
+                break
             else:
-                silownia.wyswietl_czlonkow()
-        elif choice == "5":
-            print("\nInstruktorzy siłowni:")
-            if len(silownia.instruktorzy) == 0:
-                print("Brak instruktorów przypisanych do siłowni.")
-            else:
-                silownia.wyswietl_instruktorow()
-        elif choice == "6":
-            print("\nZajęcia siłowni:")
-            if len(silownia.zajecia) == 0:
-                print("Brak zajęć przypisanych do siłowni.")
-            else:
-                silownia.wyswietl_zajecia()
-        else:
-            print("Nieprawidłowy wybór. Spróbuj ponownie.")
+                print("Nieprawidłowy wybór. Spróbuj ponownie.")
+        except ValueError:
+            print("\nWystąpił błąd. Proszę spróbować ponownie.")
 
 
 def zarzadzanie_klientami(silownia: Silownia) -> None:
@@ -104,8 +110,10 @@ def przypisz_karnet(klient) -> None:
 def dodawanie_instruktora() -> Instruktor:
     imie = str(input("Podaj imię instruktora: "))
     nazwisko = str(input("Podaj nazwisko instruktora: "))
-    specjalizacja = str(input("Podaj specjalizację instruktora: "))
-    return Instruktor(imie, nazwisko, specjalizacja)
+    data_urodzenia = str(input("Podaj datę urodzenia instruktora (YYYY-MM-DD): "))
+    email = str(input("Podaj email instruktora: "))
+    telefon = str(input("Podaj telefon instruktora: "))
+    return Instruktor(imie, nazwisko, data_urodzenia, email, telefon)
 
 
 def dodawanie_zajec() -> Zajecia:
