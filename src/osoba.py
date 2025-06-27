@@ -3,7 +3,7 @@ from src.utils import *
 
 
 class Osoba:
-    def __init__(self, imie: str, nazwisko: str, data_urodzenia: str, email: str, telefon: str) -> None:
+    def __init__(self, imie: str, nazwisko: str, data_urodzenia: str, email: str, telefon: str):
         self.__imie = imie
         self.__nazwisko = nazwisko
         self.__data_urodzenia = sprawdz_format_daty(data_urodzenia)
@@ -33,7 +33,7 @@ class Osoba:
     def nazwisko(self) -> str:
         return self.__nazwisko
 
-    def wyswietl_dane(self):
+    def wyswietl_dane(self) -> None:
         print(f"Imię: {self.__imie}, Nazwisko: {self.__nazwisko}, Data urodzenia: {self.__data_urodzenia}, Email: {self.__email}, Telefon: {self.__telefon}")
 
     def __ustal_wiek(self) -> int:

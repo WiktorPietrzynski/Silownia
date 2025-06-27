@@ -12,7 +12,7 @@ class Karnet:
         self.data_zakonczenia = self.__ustal_date_zakonczenia(data_rozpoczecia, self.dlugosc)
         self.status = "aktywny"
 
-    def anuluj_karnet(self, powod: str = None):
+    def anuluj_karnet(self, powod: str = None) -> None:
         rok = datetime.strptime(self.data_rozpoczecia, "%Y-%m-%d").year
         miesiac = datetime.strptime(self.data_rozpoczecia, "%Y-%m-%d").month
         if miesiac == 12:
@@ -27,7 +27,7 @@ class Karnet:
             print("Karnet anulowany bez podania powodu.")
         self.status = "nieaktywny"
 
-    def przedluz_karnet(self, liczba_miesiecy: int):
+    def przedluz_karnet(self, liczba_miesiecy: int) -> None:
         if liczba_miesiecy <= 0:
             raise ValueError("Liczba miesięcy do przedłużenia musi być większa niż 0.")
         if self.rodzaj_karnetu == "bezterminowy":
@@ -63,13 +63,11 @@ class Karnet:
         znizki = {
             "studencka": 0.8,
             "senior": 0.9,
-            "rodzinny": 0.85,
-            "promocja_wakacyjna": 0.95
+            "rodzinna": 0.85,
+            "wakacyjna": 0.95
         }
         if self.znizka in znizki:
             cena_karnetu *= znizki[self.znizka]
-        elif self.znizka is not None:
-            raise ValueError(f"Nieznana zniżka: {self.znizka}")
         return cena_karnetu
 
     @staticmethod

@@ -12,21 +12,21 @@ class Silownia:
         self.klienci = []
         self.zajecia = []
 
-    def dodaj_klienta(self, klient: Klient):
+    def dodaj_klienta(self, klient: Klient) -> None:
         if klient in self.klienci:
             print(f"Klient {klient.imie} {klient.nazwisko} już istnieje.")
         else:
             self.klienci.append(klient)
             print(f"Dodano klienta: {klient.imie} {klient.nazwisko}")
 
-    def dodaj_instruktora(self, instruktor: Instruktor):
+    def dodaj_instruktora(self, instruktor: Instruktor) -> None:
         if instruktor in self.instruktorzy:
             print(f"Instruktor {instruktor.imie} {instruktor.nazwisko} już istnieje.")
         else:
             self.instruktorzy.append(instruktor)
             print(f"Dodano instruktora: {instruktor.imie} {instruktor.nazwisko}")
 
-    def zaplanuj_zajecia(self, zajecia: Zajecia):
+    def zaplanuj_zajecia(self, zajecia: Zajecia) -> None:
         if zajecia in self.zajecia:
             print(f"Zajęcia {zajecia.nazwa} - {zajecia.data} już istnieją.")
         else:
@@ -34,12 +34,12 @@ class Silownia:
             self.zajecia.append(zajecia)
             print(f"Dodano zajęcia: {zajecia.nazwa} - {zajecia.data}")
 
-    def __sprawdz_zaplanowane_zajecia(self, zajecia):
+    def __sprawdz_zaplanowane_zajecia(self, zajecia) -> None:
         godziny_rozpoczecia_zajec = [zajecia.data for zajecia in self.zajecia]
         if zajecia.data in godziny_rozpoczecia_zajec:
             raise ValueError("Zajecia nie mogą odbywać się w tym samym czasie")
 
-    def wyswietl_czlonkow(self):
+    def wyswietl_czlonkow(self) -> None:
         ilosc_czlonkow = len(self.klienci)
         aktywni_czlonkowie = [f"{klient.imie} {klient.nazwisko}" for klient in self.klienci if klient.status == "aktywny"]
         ilosc_aktywnych_czlonkow = len(aktywni_czlonkowie)
@@ -49,7 +49,7 @@ class Silownia:
         print(f"{ilosc_aktywnych_czlonkow} z {ilosc_czlonkow} posiada aktywny karnet.")
         print(f"{ilosc_nieaktywnych_czlonkow} z {ilosc_czlonkow} nie opłaciło swojego karnetu za ten miesiąc.")
 
-    def wyswietl_instruktorow(self):
+    def wyswietl_instruktorow(self) -> None:
         ilosc_instruktorow = len(self.instruktorzy)
         lista_specjalizacji = []
         for insturktor in self.instruktorzy:
@@ -62,7 +62,7 @@ class Silownia:
         for instruktor in self.instruktorzy:
             print(f"- {instruktor.imie} {instruktor.nazwisko}, specjalizacje: {', '.join(instruktor.specjalizacje)}")
 
-    def wyswietl_zajecia(self):
+    def wyswietl_zajecia(self) -> None:
         aktualny_czas = datetime.now()
         zrealizowane_zajecia = [zajecia for zajecia in self.zajecia if zajecia.data < aktualny_czas]
         ilosc_zrealizowanych_zajec = len(zrealizowane_zajecia)
